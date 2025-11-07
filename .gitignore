@@ -1,0 +1,56 @@
+# Archivos de configuración de Visual Studio
+.vs/
+
+# Archivos de ensamblado y salida binaria
+*.exe
+*.dll
+*.pdb
+
+# Carpetas de binarios y objetos generados
+bin/
+obj/
+
+# Ignorar paquetes NuGet descargados
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Archivos de configuración de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales de compilación
+*.cache
+*.ilk
+*.log
+*.meta
+*.obj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*.trx
+*.vscode/
+
+# Archivos de configuración de depuración
+*.csproj.user
+*.csproj.CoreCompileInputs.cache
+*.csproj.FileListAbsolute.txt
+
+# Archivos generados por el compilador
+Generated/
+
+# Otros archivos temporales y de trabajo de Visual Studio
+.vscode/
+.DS_Store
+Thumbs.db
+_ReSharper*
+*.DotSettings.user
