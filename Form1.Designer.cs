@@ -29,6 +29,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoUnitarioDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotalDestino;
-
+        private System.Windows.Forms.Button button1;
     }
 }

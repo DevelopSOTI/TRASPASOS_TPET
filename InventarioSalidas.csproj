@@ -47,9 +47,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>505066854_1320940129853895_3925482827666462286_n.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=10.3.3.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
       <HintPath>packages\FirebirdSql.Data.FirebirdClient.10.3.3\lib\netstandard2.0\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Fraccionamientos\Fraccionamientos\bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,6 +85,12 @@
     </Compile>
     <Compile Include="FormTransacciones.Designer.cs">
       <DependentUpon>FormTransacciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_HIST_APP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HIST_APP.Designer.cs">
+      <DependentUpon>F_HIST_APP.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ApiMicrosipHelper.cs" />
     <Compile Include="ApiMspInventExt.cs" />
@@ -117,6 +131,9 @@
     <EmbeddedResource Include="FormTransacciones.resx">
       <DependentUpon>FormTransacciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_HIST_APP.resx">
+      <DependentUpon>F_HIST_APP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -153,6 +170,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="505066854_1320940129853895_3925482827666462286_n.ico" />
     <Content Include="ApiMicrosip.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,6 +13,7 @@ using System.Text;
 using ApiIn = ApisMicrosip.ApiMspInventExt;
 using ApiBa = ApisMicrosip.ApiMspBasicaExt;
 using System.IO;
+using System.Runtime.InteropServices;
 
 
 namespace InventarioSalidas
@@ -198,14 +199,21 @@ namespace InventarioSalidas
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.btnHistorial = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -239,6 +247,8 @@ namespace InventarioSalidas
             this.CostoTotalDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnQuitarArticulo = new System.Windows.Forms.Button();
+            this.chkUsarCostos = new System.Windows.Forms.CheckBox();
+            this.lblCostoInfo = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.gbEmpresaOrigen.SuspendLayout();
             this.gbEmpresaDestino.SuspendLayout();
@@ -249,13 +259,31 @@ namespace InventarioSalidas
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.panelHeader.Controls.Add(this.button1);
             this.panelHeader.Controls.Add(this.lblTitulo);
             this.panelHeader.Controls.Add(this.btnConfiguracion);
+            this.panelHeader.Controls.Add(this.btnHistorial);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(900, 70);
             this.panelHeader.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(434, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 36);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "📱App Movil";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblTitulo
             // 
@@ -264,7 +292,7 @@ namespace InventarioSalidas
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(20, 20);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(456, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(397, 30);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "CONTROL DE INVENTARIO - SALIDAS";
             // 
@@ -285,24 +313,24 @@ namespace InventarioSalidas
             this.btnConfiguracion.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             this.btnConfiguracion.MouseEnter += new System.EventHandler(this.BtnConfiguracion_MouseEnter);
             this.btnConfiguracion.MouseLeave += new System.EventHandler(this.BtnConfiguracion_MouseLeave);
-            // Botón Historial
-            btnHistorial = new Button();
-            btnHistorial.BackColor = Color.FromArgb(52, 152, 219);
-            btnHistorial.Cursor = Cursors.Hand;
-            btnHistorial.FlatAppearance.BorderSize = 0;
-            btnHistorial.FlatStyle = FlatStyle.Flat;
-            btnHistorial.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnHistorial.ForeColor = Color.White;
-            btnHistorial.Location = new Point(580, 17);
-            btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(140, 36);
-            btnHistorial.TabIndex = 2;
-            btnHistorial.Text = "📊 Historial";
-            btnHistorial.UseVisualStyleBackColor = false;
-            btnHistorial.Click += new EventHandler(this.BtnHistorial_Click);
-            btnHistorial.MouseEnter += new EventHandler(this.BtnHistorial_MouseEnter);
-            btnHistorial.MouseLeave += new EventHandler(this.BtnHistorial_MouseLeave);
-            panelHeader.Controls.Add(btnHistorial);
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorial.FlatAppearance.BorderSize = 0;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHistorial.ForeColor = System.Drawing.Color.White;
+            this.btnHistorial.Location = new System.Drawing.Point(580, 17);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(140, 36);
+            this.btnHistorial.TabIndex = 2;
+            this.btnHistorial.Text = "📊 Historial";
+            this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
+            this.btnHistorial.MouseEnter += new System.EventHandler(this.BtnHistorial_MouseEnter);
+            this.btnHistorial.MouseLeave += new System.EventHandler(this.BtnHistorial_MouseLeave);
             // 
             // lblFecha
             // 
@@ -424,26 +452,6 @@ namespace InventarioSalidas
             this.cboAlmacenOrigen.Name = "cboAlmacenOrigen";
             this.cboAlmacenOrigen.Size = new System.Drawing.Size(240, 25);
             this.cboAlmacenOrigen.TabIndex = 5;
-            // CheckBox para usar costos
-            chkUsarCostos = new CheckBox();
-            chkUsarCostos.Text = "Usar costos específicos en salida";
-            chkUsarCostos.Location = new Point(520, 90);
-            chkUsarCostos.Size = new Size(250, 25);
-            chkUsarCostos.Font = new Font("Segoe UI", 10F);
-            chkUsarCostos.ForeColor = Color.FromArgb(44, 62, 80);
-            chkUsarCostos.Checked = false;
-            chkUsarCostos.CheckedChanged += ChkUsarCostos_CheckedChanged;
-            this.Controls.Add(chkUsarCostos);
-
-            // Label informativo
-            lblCostoInfo = new Label();
-            lblCostoInfo.Text = "ℹ️ Si está habilitado, deberás capturar costos manualmente en la tabla";
-            lblCostoInfo.Location = new Point(520, 118);
-            lblCostoInfo.Size = new Size(350, 40);
-            lblCostoInfo.Font = new Font("Segoe UI", 8F, FontStyle.Italic);
-            lblCostoInfo.ForeColor = Color.FromArgb(127, 140, 141);
-            lblCostoInfo.Visible = false;
-            this.Controls.Add(lblCostoInfo);
             // 
             // gbEmpresaDestino
             // 
@@ -567,14 +575,14 @@ namespace InventarioSalidas
             this.CantidadOrigen,
             this.CostoUnitario,
             this.CostoTotal});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrigen.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrigen.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrigen.EnableHeadersVisualStyles = false;
             this.dgvOrigen.Location = new System.Drawing.Point(30, 465);
             this.dgvOrigen.MultiSelect = false;
@@ -585,7 +593,6 @@ namespace InventarioSalidas
             this.dgvOrigen.TabIndex = 8;
             this.dgvOrigen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrigen_CellEndEdit);
             this.dgvOrigen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrigen_CellValueChanged);
-            dgvOrigen.CellFormatting += DgvOrigen_CellFormatting;
             // 
             // ClaveOrigen
             // 
@@ -605,38 +612,44 @@ namespace InventarioSalidas
             this.CantidadOrigen.HeaderText = "Cantidad";
             this.CantidadOrigen.Name = "CantidadOrigen";
             this.CantidadOrigen.Width = 80;
-
+            // 
+            // CostoUnitario
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.CostoUnitario.DefaultCellStyle = dataGridViewCellStyle3;
             this.CostoUnitario.HeaderText = "Costo Unit.";
             this.CostoUnitario.Name = "CostoUnitario";
-            CostoUnitario.Width = 110;
-            CostoUnitario.Visible = false; // Oculto por defecto
-            CostoUnitario.DefaultCellStyle.Format = "N2";
-            CostoUnitario.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            CostoTotal.HeaderText = "Costo Total";
-            CostoTotal.Name = "CostoTotal";
-            CostoTotal.Width = 110;
-            CostoTotal.Visible = false; // Oculto por defecto
-            CostoTotal.DefaultCellStyle.Format = "N2";
-            CostoTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.CostoUnitario.Visible = false;
+            this.CostoUnitario.Width = 110;
+            // 
+            // CostoTotal
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            this.CostoTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CostoTotal.HeaderText = "Costo Total";
+            this.CostoTotal.Name = "CostoTotal";
+            this.CostoTotal.Visible = false;
+            this.CostoTotal.Width = 110;
             // 
             // dgvDestino
             // 
             this.dgvDestino.AllowUserToAddRows = false;
             this.dgvDestino.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.dgvDestino.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.dgvDestino.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDestino.BackgroundColor = System.Drawing.Color.White;
             this.dgvDestino.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDestino.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDestino.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDestino.ColumnHeadersHeight = 35;
             this.dgvDestino.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClaveDestino,
@@ -644,14 +657,14 @@ namespace InventarioSalidas
             this.CantidadDestino,
             this.CostoUnitarioDestino,
             this.CostoTotalDestino});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDestino.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDestino.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDestino.EnableHeadersVisualStyles = false;
             this.dgvDestino.Location = new System.Drawing.Point(470, 465);
             this.dgvDestino.MultiSelect = false;
@@ -677,28 +690,34 @@ namespace InventarioSalidas
             // 
             // CantidadDestino
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CantidadDestino.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CantidadDestino.DefaultCellStyle = dataGridViewCellStyle8;
             this.CantidadDestino.HeaderText = "Cantidad";
             this.CantidadDestino.Name = "CantidadDestino";
             this.CantidadDestino.ReadOnly = true;
             this.CantidadDestino.Width = 80;
-
-            CostoUnitarioDestino.HeaderText = "Costo Unit.";
-            CostoUnitarioDestino.Name = "CostoUnitarioDestino";
-            CostoUnitarioDestino.Width = 110;
-            CostoUnitarioDestino.Visible = false; // Oculto por defecto
-            CostoUnitarioDestino.DefaultCellStyle.Format = "N2";
-            CostoUnitarioDestino.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            CostoUnitarioDestino.ReadOnly = true;
-
-            CostoTotalDestino.HeaderText = "Costo Total";
-            CostoTotalDestino.Name = "CostoTotalDestino";
-            CostoTotalDestino.Width = 110;
-            CostoTotalDestino.Visible = false; // Oculto por defecto
-            CostoTotalDestino.DefaultCellStyle.Format = "N2";
-            CostoTotalDestino.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            CostoTotalDestino.ReadOnly = true;
+            // 
+            // CostoUnitarioDestino
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            this.CostoUnitarioDestino.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CostoUnitarioDestino.HeaderText = "Costo Unit.";
+            this.CostoUnitarioDestino.Name = "CostoUnitarioDestino";
+            this.CostoUnitarioDestino.ReadOnly = true;
+            this.CostoUnitarioDestino.Visible = false;
+            this.CostoUnitarioDestino.Width = 110;
+            // 
+            // CostoTotalDestino
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            this.CostoTotalDestino.DefaultCellStyle = dataGridViewCellStyle10;
+            this.CostoTotalDestino.HeaderText = "Costo Total";
+            this.CostoTotalDestino.Name = "CostoTotalDestino";
+            this.CostoTotalDestino.ReadOnly = true;
+            this.CostoTotalDestino.Visible = false;
+            this.CostoTotalDestino.Width = 110;
             // 
             // btnGenerar
             // 
@@ -714,9 +733,9 @@ namespace InventarioSalidas
             this.btnGenerar.TabIndex = 10;
             this.btnGenerar.Text = "✓ Generar Salida";
             this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             this.btnGenerar.MouseEnter += new System.EventHandler(this.BtnGenerar_MouseEnter);
             this.btnGenerar.MouseLeave += new System.EventHandler(this.BtnGenerar_MouseLeave);
-            this.btnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             // 
             // btnQuitarArticulo
             // 
@@ -734,10 +753,33 @@ namespace InventarioSalidas
             this.btnQuitarArticulo.UseVisualStyleBackColor = false;
             this.btnQuitarArticulo.Click += new System.EventHandler(this.BtnQuitarArticulo_Click);
             // 
+            // chkUsarCostos
+            // 
+            this.chkUsarCostos.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.chkUsarCostos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.chkUsarCostos.Location = new System.Drawing.Point(520, 90);
+            this.chkUsarCostos.Name = "chkUsarCostos";
+            this.chkUsarCostos.Size = new System.Drawing.Size(250, 25);
+            this.chkUsarCostos.TabIndex = 0;
+            this.chkUsarCostos.Text = "Usar costos específicos en salida";
+            // 
+            // lblCostoInfo
+            // 
+            this.lblCostoInfo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
+            this.lblCostoInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblCostoInfo.Location = new System.Drawing.Point(520, 118);
+            this.lblCostoInfo.Name = "lblCostoInfo";
+            this.lblCostoInfo.Size = new System.Drawing.Size(350, 40);
+            this.lblCostoInfo.TabIndex = 1;
+            this.lblCostoInfo.Text = "ℹ️ Si está habilitado, deberás capturar costos manualmente en la tabla";
+            this.lblCostoInfo.Visible = false;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(900, 800);
+            this.Controls.Add(this.chkUsarCostos);
+            this.Controls.Add(this.lblCostoInfo);
             this.Controls.Add(this.btnQuitarArticulo);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.lblFecha);
@@ -750,6 +792,7 @@ namespace InventarioSalidas
             this.Controls.Add(this.dgvOrigen);
             this.Controls.Add(this.dgvDestino);
             this.Controls.Add(this.btnGenerar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Salidas - Inventario";
@@ -2621,6 +2664,10 @@ namespace InventarioSalidas
             public string FolioEntrada { get; set; }
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            F_HIST_APP app = new F_HIST_APP();
+            app.ShowDialog();
+        }
     }
 }

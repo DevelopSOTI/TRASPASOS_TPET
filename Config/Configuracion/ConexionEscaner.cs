@@ -34,7 +34,7 @@ namespace InventarioSalidas.Config.Configuracion
                 reg.LeerRegistros(false);
 
                 // Intentar leer ruta desde registros, si no existe usar default
-                string rutaEscaner = reg.ESCANER_ROOT;
+                string rutaEscaner = reg.MICRO_ROOT;
 
                
 
