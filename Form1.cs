@@ -74,6 +74,11 @@ namespace InventarioSalidas
             InitializeComponent();
             ConfigurarFormulario();
             this.Load += Form1_Load;
+            // Suscribir al evento Resize
+            this.Resize += Form1_Resize;
+
+            // Llamar al evento una vez al inicio para ajustar el layout inicial
+            Form1_Resize(this, EventArgs.Empty);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -91,6 +96,8 @@ namespace InventarioSalidas
                 MessageBox.Show($"Error en Form1_Load: {ex.Message}\n\nTipo: {ex.GetType().Name}",
                     "Error de Inicialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            Form1_Resize(this, EventArgs.Empty);
         }
 
         private void InicializarConexionSegura()
@@ -271,6 +278,7 @@ namespace InventarioSalidas
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -295,6 +303,7 @@ namespace InventarioSalidas
             this.lblTitulo.Size = new System.Drawing.Size(397, 30);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "CONTROL DE INVENTARIO - SALIDAS";
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // btnConfiguracion
             // 
@@ -310,6 +319,7 @@ namespace InventarioSalidas
             this.btnConfiguracion.TabIndex = 1;
             this.btnConfiguracion.Text = "⚙ Configuración";
             this.btnConfiguracion.UseVisualStyleBackColor = false;
+            this.btnConfiguracion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnConfiguracion.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             this.btnConfiguracion.MouseEnter += new System.EventHandler(this.BtnConfiguracion_MouseEnter);
             this.btnConfiguracion.MouseLeave += new System.EventHandler(this.BtnConfiguracion_MouseLeave);
@@ -328,6 +338,7 @@ namespace InventarioSalidas
             this.btnHistorial.TabIndex = 2;
             this.btnHistorial.Text = "📊 Historial";
             this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
             this.btnHistorial.MouseEnter += new System.EventHandler(this.BtnHistorial_MouseEnter);
             this.btnHistorial.MouseLeave += new System.EventHandler(this.BtnHistorial_MouseLeave);
@@ -342,6 +353,7 @@ namespace InventarioSalidas
             this.lblFecha.TabIndex = 1;
             this.lblFecha.Text = "Fecha:";
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // dtpFecha
             // 
@@ -351,6 +363,7 @@ namespace InventarioSalidas
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(140, 25);
             this.dtpFecha.TabIndex = 2;
+            this.dtpFecha.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // lblDescripcion
             // 
@@ -362,6 +375,7 @@ namespace InventarioSalidas
             this.lblDescripcion.TabIndex = 3;
             this.lblDescripcion.Text = "Descripción:";
             this.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // txtDescripcion
             // 
@@ -372,6 +386,7 @@ namespace InventarioSalidas
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(350, 50);
             this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // gbEmpresaOrigen
             // 
@@ -391,6 +406,7 @@ namespace InventarioSalidas
             this.gbEmpresaOrigen.TabIndex = 5;
             this.gbEmpresaOrigen.TabStop = false;
             this.gbEmpresaOrigen.Text = "🏢 Empresa Origen";
+            this.gbEmpresaOrigen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // lblOrigenTexto
             // 
@@ -411,6 +427,7 @@ namespace InventarioSalidas
             this.cboOrigenOrigen.Name = "cboOrigenOrigen";
             this.cboOrigenOrigen.Size = new System.Drawing.Size(240, 25);
             this.cboOrigenOrigen.TabIndex = 1;
+            this.cboOrigenOrigen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.cboOrigenOrigen.SelectedIndexChanged += new System.EventHandler(this.CboOrigenOrigen_SelectedIndexChanged);
             // 
             // lblConceptoOrigen
@@ -432,6 +449,7 @@ namespace InventarioSalidas
             this.cboConceptoOrigen.Name = "cboConceptoOrigen";
             this.cboConceptoOrigen.Size = new System.Drawing.Size(240, 25);
             this.cboConceptoOrigen.TabIndex = 3;
+            this.cboConceptoOrigen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // lblAlmacenOrigen
             // 
@@ -452,6 +470,7 @@ namespace InventarioSalidas
             this.cboAlmacenOrigen.Name = "cboAlmacenOrigen";
             this.cboAlmacenOrigen.Size = new System.Drawing.Size(240, 25);
             this.cboAlmacenOrigen.TabIndex = 5;
+            this.cboAlmacenOrigen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // gbEmpresaDestino
             // 
@@ -471,6 +490,7 @@ namespace InventarioSalidas
             this.gbEmpresaDestino.TabIndex = 6;
             this.gbEmpresaDestino.TabStop = false;
             this.gbEmpresaDestino.Text = "🏭 Empresa Destino (Referencia)";
+            this.gbEmpresaDestino.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             // 
             // lblDestinoTexto
             // 
@@ -491,6 +511,7 @@ namespace InventarioSalidas
             this.cboOrigenDestino.Name = "cboOrigenDestino";
             this.cboOrigenDestino.Size = new System.Drawing.Size(240, 25);
             this.cboOrigenDestino.TabIndex = 1;
+            this.cboOrigenDestino.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.cboOrigenDestino.SelectedIndexChanged += new System.EventHandler(this.CboOrigenDestino_SelectedIndexChanged);
             // 
             // lblConceptoDestino
@@ -512,6 +533,7 @@ namespace InventarioSalidas
             this.cboConceptoDestino.Name = "cboConceptoDestino";
             this.cboConceptoDestino.Size = new System.Drawing.Size(240, 25);
             this.cboConceptoDestino.TabIndex = 3;
+            this.cboConceptoDestino.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // lblAlmacenDestino
             // 
@@ -532,6 +554,7 @@ namespace InventarioSalidas
             this.cboAlmacenDestino.Name = "cboAlmacenDestino";
             this.cboAlmacenDestino.Size = new System.Drawing.Size(240, 25);
             this.cboAlmacenDestino.TabIndex = 5;
+            this.cboAlmacenDestino.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             // 
             // btnSeleccionarArticulos
             // 
@@ -547,6 +570,7 @@ namespace InventarioSalidas
             this.btnSeleccionarArticulos.TabIndex = 7;
             this.btnSeleccionarArticulos.Text = "📦 Seleccionar Artículos";
             this.btnSeleccionarArticulos.UseVisualStyleBackColor = false;
+            this.btnSeleccionarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.btnSeleccionarArticulos.Click += new System.EventHandler(this.BtnSeleccionarArticulos_Click);
             this.btnSeleccionarArticulos.MouseEnter += new System.EventHandler(this.BtnSeleccionarArticulos_MouseEnter);
             this.btnSeleccionarArticulos.MouseLeave += new System.EventHandler(this.BtnSeleccionarArticulos_MouseLeave);
@@ -570,11 +594,11 @@ namespace InventarioSalidas
             this.dgvOrigen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrigen.ColumnHeadersHeight = 35;
             this.dgvOrigen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClaveOrigen,
-            this.NombreOrigen,
-            this.CantidadOrigen,
-            this.CostoUnitario,
-            this.CostoTotal});
+    this.ClaveOrigen,
+    this.NombreOrigen,
+    this.CantidadOrigen,
+    this.CostoUnitario,
+    this.CostoTotal});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -591,6 +615,7 @@ namespace InventarioSalidas
             this.dgvOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrigen.Size = new System.Drawing.Size(400, 260);
             this.dgvOrigen.TabIndex = 8;
+            this.dgvOrigen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             this.dgvOrigen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrigen_CellEndEdit);
             this.dgvOrigen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrigen_CellValueChanged);
             // 
@@ -652,11 +677,11 @@ namespace InventarioSalidas
             this.dgvDestino.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDestino.ColumnHeadersHeight = 35;
             this.dgvDestino.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClaveDestino,
-            this.NombreDestino,
-            this.CantidadDestino,
-            this.CostoUnitarioDestino,
-            this.CostoTotalDestino});
+this.ClaveDestino,
+this.NombreDestino,
+this.CantidadDestino,
+this.CostoUnitarioDestino,
+this.CostoTotalDestino});
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -674,6 +699,7 @@ namespace InventarioSalidas
             this.dgvDestino.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDestino.Size = new System.Drawing.Size(400, 260);
             this.dgvDestino.TabIndex = 9;
+            this.dgvDestino.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             // 
             // ClaveDestino
             // 
@@ -733,6 +759,7 @@ namespace InventarioSalidas
             this.btnGenerar.TabIndex = 10;
             this.btnGenerar.Text = "✓ Generar Salida";
             this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             this.btnGenerar.MouseEnter += new System.EventHandler(this.BtnGenerar_MouseEnter);
             this.btnGenerar.MouseLeave += new System.EventHandler(this.BtnGenerar_MouseLeave);
@@ -751,17 +778,20 @@ namespace InventarioSalidas
             this.btnQuitarArticulo.TabIndex = 11;
             this.btnQuitarArticulo.Text = "🗑 Quitar Artículo";
             this.btnQuitarArticulo.UseVisualStyleBackColor = false;
+            this.btnQuitarArticulo.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.btnQuitarArticulo.Click += new System.EventHandler(this.BtnQuitarArticulo_Click);
-            // 
-            // chkUsarCostos
-            // 
-            this.chkUsarCostos.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.chkUsarCostos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.chkUsarCostos.Location = new System.Drawing.Point(520, 90);
-            this.chkUsarCostos.Name = "chkUsarCostos";
-            this.chkUsarCostos.Size = new System.Drawing.Size(250, 25);
-            this.chkUsarCostos.TabIndex = 0;
-            this.chkUsarCostos.Text = "Usar costos específicos en salida";
+
+            // CheckBox para usar costos
+            chkUsarCostos = new CheckBox();
+            chkUsarCostos.Text = "Usar costos específicos en salida";
+            chkUsarCostos.Location = new Point(520, 90);
+            chkUsarCostos.Size = new Size(250, 25);
+            chkUsarCostos.Font = new Font("Segoe UI", 10F);
+            chkUsarCostos.ForeColor = Color.FromArgb(44, 62, 80);
+            chkUsarCostos.Checked = false;
+            chkUsarCostos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            chkUsarCostos.CheckedChanged += ChkUsarCostos_CheckedChanged;
+            this.Controls.Add(chkUsarCostos);
             // 
             // lblCostoInfo
             // 
@@ -773,11 +803,13 @@ namespace InventarioSalidas
             this.lblCostoInfo.TabIndex = 1;
             this.lblCostoInfo.Text = "ℹ️ Si está habilitado, deberás capturar costos manualmente en la tabla";
             this.lblCostoInfo.Visible = false;
+            this.lblCostoInfo.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(900, 800);
+            this.MinimumSize = new System.Drawing.Size(900, 800);
             this.Controls.Add(this.chkUsarCostos);
             this.Controls.Add(this.lblCostoInfo);
             this.Controls.Add(this.btnQuitarArticulo);
@@ -804,8 +836,9 @@ namespace InventarioSalidas
             ((System.ComponentModel.ISupportInitialize)(this.dgvDestino)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+
 
         private void ConfigurarFormulario()
         {
@@ -908,7 +941,7 @@ namespace InventarioSalidas
                         cboConceptoOrigen.Items.Clear();
                         conceptosSalidaIds.Clear(); // Limpiar IDs anteriores
 
-                        string query = "SELECT CONCEPTO_IN_ID, NOMBRE FROM CONCEPTOS_IN WHERE TIPO = 'S' ORDER BY NOMBRE";
+                        string query = "SELECT CONCEPTO_IN_ID, NOMBRE FROM CONCEPTOS_IN WHERE TIPO = 'S' AND NOMBRE NOT LIKE '%Traspaso (salida)%' ORDER BY NOMBRE";
                         FbCommand fb = new FbCommand(query, con.FBC);
                         FbDataReader fdr = fb.ExecuteReader();
 
@@ -1040,6 +1073,55 @@ namespace InventarioSalidas
             {
                 MessageBox.Show("Error al cargar almacenes: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                return;
+
+            int anchoDisponible = this.ClientSize.Width - 60;
+            int mitadAncho = anchoDisponible / 2;
+            int espacioEntreMedio = 40;
+
+            gbEmpresaOrigen.Width = mitadAncho - (espacioEntreMedio / 2);
+            gbEmpresaDestino.Left = gbEmpresaOrigen.Right + espacioEntreMedio;
+            gbEmpresaDestino.Width = mitadAncho - (espacioEntreMedio / 2);
+
+            dgvOrigen.Width = mitadAncho - (espacioEntreMedio / 2);
+            dgvOrigen.Height = this.ClientSize.Height - dgvOrigen.Top - 90;
+
+            dgvDestino.Left = gbEmpresaDestino.Left;
+            dgvDestino.Width = mitadAncho - (espacioEntreMedio / 2);
+            dgvDestino.Height = dgvOrigen.Height;
+
+            AjustarColumnasDataGridView(dgvOrigen);
+            AjustarColumnasDataGridView(dgvDestino);
+
+            btnGenerar.Top = this.ClientSize.Height - btnGenerar.Height - 15;
+            btnGenerar.Left = (this.ClientSize.Width - btnGenerar.Width) / 2;
+        }
+
+        private void AjustarColumnasDataGridView(DataGridView dgv)
+        {
+            if (dgv.Columns.Count == 0)
+                return;
+
+            int anchoDisponible = dgv.Width - 3;
+
+            if (dgv.Rows.Count > 0)
+                anchoDisponible -= SystemInformation.VerticalScrollBarWidth;
+
+            int anchoClave = (int)(anchoDisponible * 0.15);
+            int anchoNombre = (int)(anchoDisponible * 0.55);
+            int anchoCantidad = anchoDisponible - anchoClave - anchoNombre;
+
+            if (dgv.Columns.Count >= 3)
+            {
+                dgv.Columns[0].Width = anchoClave;
+                dgv.Columns[1].Width = anchoNombre;
+                dgv.Columns[2].Width = anchoCantidad;
             }
         }
 
